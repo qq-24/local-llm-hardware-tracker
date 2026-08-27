@@ -1,0 +1,13 @@
+# 隐私 / 登录态（绝不提交）
+xianyu_state.json
+*.log
+
+# 本地临时工作区
+tmp/
+对话存档/
+memory.md
+
+# Python
+__pycache__/
+*.pyc
+.venv/

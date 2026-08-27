@@ -1,0 +1,49 @@
+{
+  "说明": [
+    "本地大模型推理性能推算用硬件规格表。",
+    "来源: 存档-内部工作稿/硬件规格-双源素材.md (2026-08-27 抓取, 双源交叉)。",
+    "字段: mem_bw=内存带宽GB/s; fp16_tflops=FP16/BF16算力(含Tensor)dense; fp16_cuda_tflops=非Tensor;",
+    "      inter_bw=卡间互联单向GB/s(0=无); pcie=PCIe代际x通道; source=来源代码(W1/W2...见素材文档)。",
+    "缺失=null (Apple/AMD 官方不公布 GPU TFLOPS，推算时以带宽墙近似或跳过算力项)。"
+  ],
+  "V100_32G": {
+    "mem_bw": 900, "fp16_tflops": 125.0, "fp16_cuda_tflops": 29.8,
+    "inter_type": "pcie", "inter_bw": 15.75, "pcie": "PCIe3.0 x16", "pcie_bw_gb_s": 15.75,
+    "tdp_w": 300, "vram_gb": 32, "source": "W1/N1",
+    "备注": "PCIe版无NVLink，卡间走PCIe3.0 x16；NVLink 仅 SXM 版有"
+  },
+  "CMP_170HX": {
+    "mem_bw": 1555.0, "fp16_tflops": null, "fp16_cuda_tflops": 12.6,
+    "inter_type": "pcie", "inter_bw": 7.88, "pcie": "PCIe4.0 x4", "pcie_bw_gb_s": 7.88,
+    "tdp_w": 250, "vram_gb": 80, "source": "G1/TC(社区解锁口径)",
+    "备注": "官方无规格页; fp16 Tensor 算力未获取; vram 为解锁后可用容量"
+  },
+  "RTX_4090": {
+    "mem_bw": 1008.0, "fp16_tflops": 330.3, "fp16_cuda_tflops": 82.58,
+    "inter_type": "none", "inter_bw": 0.0, "pcie": "PCIe4.0 x16", "pcie_bw_gb_s": 31.5,
+    "tdp_w": 450, "vram_gb": 24, "source": "W2"
+  },
+  "RTX_5090": {
+    "mem_bw": 1792.0, "fp16_tflops": 419.2, "fp16_cuda_tflops": 104.8,
+    "inter_type": "none", "inter_bw": 0.0, "pcie": "PCIe5.0 x16", "pcie_bw_gb_s": 63.0,
+    "tdp_w": 575, "vram_gb": 32, "source": "W3/G2"
+  },
+  "Strix_Halo_395": {
+    "mem_bw": 256.0, "fp16_tflops": null, "fp16_cuda_tflops": null,
+    "inter_type": "none", "inter_bw": 0.0, "pcie": "PCIe4.0 x16", "pcie_bw_gb_s": 31.5,
+    "tdp_w": 120, "vram_gb": 128, "source": "A1/W5",
+    "备注": "统一内存128G; 带宽为换算值(256-bit LPDDR5X-8000); GPU算力官方未公布"
+  },
+  "M5_Max_128G": {
+    "mem_bw": 614.0, "fp16_tflops": null, "fp16_cuda_tflops": null,
+    "inter_type": "none", "inter_bw": 0.0, "pcie": "n/a", "pcie_bw_gb_s": 0.0,
+    "tdp_w": 480, "vram_gb": 128, "source": "W4/AP1",
+    "备注": "统一内存; 40核GPU版614GB/s; GPU算力官方未公布"
+  },
+  "M5_Ultra": {
+    "mem_bw": 1228.8, "fp16_tflops": null, "fp16_cuda_tflops": null,
+    "inter_type": "none", "inter_bw": 0.0, "pcie": "n/a", "pcie_bw_gb_s": 0.0,
+    "tdp_w": 480, "vram_gb": 512, "source": "W4/AP1",
+    "备注": "统一内存可配96/256/512G; GPU算力官方未公布"
+  }
+}
